@@ -21,22 +21,16 @@ class AddNoteActivity : AppCompatActivity() {
 
     open fun dbEntry(v: View) {
 
-        db()
-
-        Log.i("NoteApp", "Entry in database")
-
-        finish()
-
-    }
-
-    fun db()   {
-
         val titleN = title_add.text.toString()
         val contentN = content_add.text.toString()
         val note = NoteEntity(titleN,contentN)
 
         db.noteDao.insertNote(note)
         db.noteDao.select()
+
+        Log.i("NoteApp", "Entry in database")
+
+        finish()
 
     }
 
